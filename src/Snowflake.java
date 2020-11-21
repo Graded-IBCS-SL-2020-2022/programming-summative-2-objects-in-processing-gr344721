@@ -2,8 +2,38 @@
 /* DON'T FORGET TO RENAME THE FILE TO Snowflake.java WHEN READY TO TEST! */
 
 class Snowflake {
-    /*
-     * SUMMATIVE REQUIRED Implement this entire class. ONLY drawSnowflake() and
+    private Sketch s;
+    private float diameter;
+    private float x;
+    private float y;
+    private int col; 
+    private float speedY;
+    private float speedX;
+
+    public Snowflake(Sketch s){
+      this.s = s;
+      diameter = s.random(5,25);
+      x = s.random(diameter / 2, s.width - diameter / 2);
+      y = s.random(diameter / 2, s.height - diameter / 2);
+      col = s.color(137,209,254);
+      speedX = 5;
+      speedY = 10;
+    }
+
+    public Snowflake(Sketch s, float diam, float X, float Y, float sx, float sy) {
+      this.s = s;
+      diameter = diam;
+      x = X;
+      y = Y;
+      col = s.color(137,209,254);
+      speedX = sx;
+      speedY = sy;
+    }
+
+    public float getRadius() {
+      return (diameter / 2);
+    }
+    /* SUMMATIVE REQUIRED Implement this entire class. ONLY drawSnowflake() and
      * moveSnowflake() have been implemented for you! I recommend using your
      * Bubble.java as a template. Start by creating your instance variables and
      * constructors.
@@ -20,6 +50,7 @@ class Snowflake {
 
     /** Moves the flake */
     public void moveSnowflake() {
+       
         if (x > (s.width - getRadius()) || x < getRadius()) {
             speedX = -speedX;
         }

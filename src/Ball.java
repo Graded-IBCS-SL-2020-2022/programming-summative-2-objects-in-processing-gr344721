@@ -1,3 +1,4 @@
+
 /** MAKE SURE TO READ THE README CAREFULLY BEFORE YOU BEGIN EDITING THIS CODE */
 class Ball {
     private Sketch s;
@@ -18,27 +19,40 @@ class Ball {
         x = s.random(diameter / 2, s.width - diameter / 2);
         y = s.random(diameter / 2, s.height - diameter / 2);
 
-        /*
-         * SUMMATIVE REQUIRED use the randomColor() method in the sketch to set default
+        /* SUMMATIVE REQUIRED use the randomColor() method in the sketch to set default
          * balls to a solid random color
          */
-
+        col = s.randomColor(false);
         /*
          * SUMMATIVE REQUIRED Set speedX and speedY to reasonable defaults. Random
          * numbers could be nice, but are not required.
          */
+        speedX = s.random(10,50);
+        speedY = s.random(10,50);
     }
 
     /** This constructor lets you specify all of the ball instance variables */
     public Ball(Sketch s, float X, float Y, float ballDiam, int ballColor, float sx, float sy) {
         /* SUMMATIVE REQUIRED Fill out this constructor */
+        this.s = s;
+        x = X;
+        y = Y;
+        diameter = ballDiam;
+        col = ballColor;
+        speedX = sx;
+        speedY = sy;
+
     }
 
     /*
      * SUMMATIVE REQUIRED Add a method called `getRadius()` that returns a float
      * representing the radius of the ball
      */
+    public float getRadius(){
+      return (diameter / 2);
+    }
 
+    
     /*
      * SUMMATIVE OPTIONAL Add a method called `stop()` that sets the ball speed to
      * 0, and another one called `start()` that starts it moving again, either at
@@ -47,6 +61,15 @@ class Ball {
      * If you create the methods, you'll need to think of a way to test them...
      */
 
+     public void stop(){
+      speedX = 0;
+      speedY = 0;
+    }
+
+    public void start(){
+      speedX = s.random(20,100);
+      speedY = s.random(20,100);
+    }
     /** Draws the ball. */
     public void drawBall() {
         /*
