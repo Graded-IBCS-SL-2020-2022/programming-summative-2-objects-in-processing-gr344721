@@ -1,5 +1,6 @@
 
 /** MAKE SURE TO READ THE README CAREFULLY BEFORE YOU BEGIN EDITING THIS CODE */
+//hi
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
@@ -8,12 +9,27 @@ public class Sketch extends PApplet {
      * SUMMATIVE REQUIRED Declare at least four balls, four bubbles, and four
      * snowflakes as instance variables. I have made the first ball for you.
      * 
+    
      * SUMMATIVE OPTIONAL Use *arrays* to store the elements, rather than individual
      * variables.
      */
 
     Ball b1;
+    Ball b2;
+    Ball b3;
+    Ball b4;
+    
 
+    Bubble bb1;
+    Bubble bb2;
+    Bubble bb3;
+    Bubble bb4;
+
+    Snowflake sf1;
+    Snowflake sf2;
+    Snowflake sf3;
+    Snowflake sf4;
+   
     public void settings() {
         size(500, 500);
     }
@@ -28,6 +44,19 @@ public class Sketch extends PApplet {
     public void setup() {
         frameRate(30);
         b1 = new Ball(this);
+        b2 = new Ball (this, 50, 50, 100, 30, 30, 50);
+        b3 = new Ball (this);
+        b4 = new Ball (this, 30, 30, 30, 50, 50, 50);
+        
+        bb1 = new Bubble(this);
+        bb2 = new Bubble(this, 50, 10, 10, 40, 20, 20);
+        bb3 = new Bubble(this, 40, 20, 20, 60);
+        bb4 = new Bubble( 30, 50, 10, 10, this);
+
+        sf1 = new Snowflake(this);
+        sf2 = new Snowflake(this, 10, 10, 10, 10, -10);
+        sf3 = new Snowflake(this, 15, 10, 20, 5, 10);
+        sf4 = new Snowflake(this);
     }
 
     public void draw() {
@@ -36,6 +65,31 @@ public class Sketch extends PApplet {
         /* SUMMATIVE REQUIRED Draw and move all balls, snowflakes, and bubbles */
         b1.drawBall();
         b1.moveBall();
+        b2.drawBall();
+        b2.moveBall();
+        b3.drawBall();
+        b3.moveBall();
+        b4.drawBall();
+        b4.moveBall();
+
+        bb1.drawBubble();
+        bb1.moveBubble();
+        bb2.drawBubble();
+        bb2.moveBubble();
+        bb3.drawBubble();
+        bb3.moveBubble();
+        bb4.drawBubble();
+        bb4.moveBubble();
+
+        sf1.drawSnowflake();
+        sf1.moveSnowflake();
+        sf2.drawSnowflake();
+        sf2.moveSnowflake();
+        sf3.drawSnowflake();
+        sf3.moveSnowflake();
+        sf4.drawSnowflake();
+        sf4.moveSnowflake();
+
     }
 
     /**
@@ -52,6 +106,14 @@ public class Sketch extends PApplet {
         }
         return color(random(0, 255), random(0, 255), random(0, 255), alpha);
     }
+
+    public void mousePressed(){
+      b1.stop();
+      b2.stop();
+      b3.stop();
+      b4.stop();
+    }
+    
 
     /*
      * SUMMATIVE OPTIONAL Add a void method called mousePressed() that stops some or
